@@ -1,0 +1,51 @@
+body{
+    display: block;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* height: 100vh; */
+    border: 1px solid red;
+}
+
+.main{
+    height: 100vh;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login{
+    width: 30%;
+    margin: auto;
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+.nav-item.dropdown {
+    position: relative;
+    /* border: 1px solid red; */
+}
+
+.dropdown-menu.drp {
+    min-width: 125px;
+}
+
+.caroussel, .banner{
+    /* border: 1px solid red; */
+    box-sizing: border-box;
+    height: 80vh;
+}
+
+.caroussel img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.banner img{
+    box-sizing: border-box;
+    height: 80vh;
+}

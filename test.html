@@ -1,0 +1,44 @@
+<article class="card h-100 p-3 position-relative overflow-hidden">
+
+                                            <!-- image recette -->
+                                            <img src="<?php echo htmlspecialchars($recipe['image_path']); ?>" alt="Image de la recette" class="img-fluid" />
+
+                                            <!-- Titre -->
+                                            <h3>
+                                                <a href="<?php echo BASE_URL; ?>pages/detailRecette.php?id=<?php echo htmlspecialchars($recipe['recipe_id']); ?>">
+                                                    <?php echo htmlspecialchars($recipe['title']); ?>
+                                                </a>
+                                            </h3>
+
+                                            <!-- Contenu de la recette -->
+                                            <div class="position-relative">
+                                                <?php echo $recipe['recipe']; ?>
+                                                <br>
+                                                <span class="">
+                                                    nbre de vues <span class="btn btn-primary"><?php echo htmlspecialchars($recipe['views']) ?></span>
+                                                </span>
+                                            </div>
+
+                                            <!-- L'auteur de la recette -->
+                                            <i><?php echo displayAuthor($recipe['author'], $users); ?></i>
+
+                                            <!-- Si l'utilisateur connecté est l'auteur de la recette, elle affiche deux boutons -->
+                                            <?php if (isset($_SESSION['LOGGED_USER']) && $recipe['author'] === $_SESSION['LOGGED_USER']['email']) : ?>
+                                                <ul class="p-0 d-flex justify-content-between position-relative w-100 border">
+                                                    <li class="btn btn-warning">
+                                                        <a class="text-white text-decoration-none" href="update.php?id=<?php echo ($recipe['recipe_id']); ?>">
+                                                            Editer l'article
+                                                        </a>
+                                                    </li>
+                                                    <li class="btn btn-danger">
+                                                        <a class="text-white text-decoration-none" href="delete.php?id=<?php echo ($recipe['recipe_id']); ?>">
+                                                            Supprimer l'article
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            <?php endif; ?>
+
+                                        </article>
+
+                                        <small>Image actuelle : <img src="<?php echo ($recipe['image_path']) ?>" alt="Image actuelle" class="img-thumbnail"
+                                                style="max-width: 100px; max-height: 100px;"></small>
